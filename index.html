@@ -66,38 +66,46 @@
  <h2> Section IV: Experimental Findings </h2>
 
  <h4> Example of Faster R-CNN outputs when trained on thermal images of cheetahs: </h4>
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_1.PNG" alt="Cheetah 1">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_2.PNG" alt="Cheetah 2">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_3.PNG" alt="Cheetah 3">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_4.PNG" alt="Cheetah 4">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_1.PNG" alt="cheetah_classification_image_1">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_2.PNG" alt="cheetah_classification_image_2">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_3.PNG" alt="cheetah_classification_image_3">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_image_4.PNG" alt="cheetah_classification_image_4">
  <p> When trained with thermal images of cheetahs, Faster R-CNN effectively identifies single or multiple cheetahs within an image, even if they are far in the background. The images above show the effectiveness of the model identifying cheetahs with 97-99% confidence in thermal images depicting obscure monochromatic environments. This dataset is likely easier on the model than the thermal dogs dataset since there are no humans within the scenes to cause false positives.</p>
 
- 
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_total_loss.PNG" alt="cheetah_classification_total_loss">
  <p> The cheetah classification challenge showed an almost linear decrease in the training loss across 300 training iterations of batch size 2, resulting in a final loss value of 0.26. Although it’s likely based on these graphs that better performance can be achieved through more iterations, we aimed to standardize and benchmark model performance. </p>
 
- 
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_cls_accuracy.PNG" alt="cheetah_classification_cls_accuracy">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_false_negative.PNG" alt="cheetah_classification_false_negative">
  <p> The classification accuracy of the cheetah classification model followed logarithmic growth in its performance, leveling out at 98% accuracy in correctly detecting a cheetah in a thermal image. A notable exception to this is a dip in steps 25 - 125; This alongside the false negative chart suggests that as the model begins to generalize and underfit the data, there is a period in training where it misses instances of cheetahs. </p>
 
- 
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/cheetah_classification_ap_output.PNG" alt="cheetah_classification_ap_output">
  <p> In our results, the cheetah detection achieved an average precision (AP) score of 29.639, indicating a relatively mediocre level of accuracy in detecting cheetahs across different objects. The AP50 score measures precision at a 50 percent intersection over union threshold, and is high at 40.119, which means a strong performance in detection. Similarly, AP75 score represents the precision level at 75 percent intersection of union threshold, and stood at 35.051, which means a consistent accuracy even under stricter box matching conditions. However, APs, which is the average precision for smaller objects is 0, which means that the model is not performing very well when the cheetahs are very small in the image. Despite this, the model was able to get a APm score of 26.954, which is for the medium sized cheetahs, which is a promising performance. Furthermore, the metric of API is the average precision across all size objects is 68.653, which gives a high and stable overview of the model’s detection capability.</p>
 
  
  <h4> Example of Faster R-CNN outputs when trained on thermal images of dogs: </h4>
-
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_image_1.PNG" alt="thermal_dogs_classification_image_1">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_image_2.PNG" alt="thermal_dogs_classification_image_2">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_image_3.PNG" alt="thermal_dogs_classification_image_3">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_image_4.PNG" alt="thermal_dogs_classification_image_4">
  <p> From an exploratory view of image classification outputs, we can see that the model is successfully identifying dogs in thermal imaging. This remains true even if it's a dog at a distance, and it does not seem to get confused with background items. However, it does generate false positives if a human is prevalent enough in the foreground.
 </p>
 
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_total_loss.PNG" alt="thermal_dogs_classification_total_loss">
  <p> The thermal dogs dataset went through a similar almost linear decrease in loss, with additional steepness between steps 0 - 75. This loss ended up at a value of 0.16 likely with opportunity for additional increase with more training.
 </p>
 
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_cls_accuracy.PNG" alt="thermal_dogs_classification_cls_accuracy">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_false_negative.PNG" alt="thermal_dogs_classification_false_negative">
  <p> The classification accuracy of the thermal dogs model followed logarithmic growth in its performance, leveling out at 98% accuracy in correctly detecting a dog in a thermal image. While this model shares a similar increase in the false negatives curve, it experiences a smoother increase in accuracy over time compared to the cheetah classification model.
 </p>
 
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_ap_output.PNG" alt="thermal_dogs_classification_ap_output">
  <p> Our results of the thermal dog detection achieved an average precision (AP) score of 41.714, indicating a relatively high level of accuracy in detecting dogs across different objects. The AP50 score measures precision at a 50 percent intersection over union threshold, and is high at 49.47, which means a strong performance in detection. Similarly, AP75 score represents the precision level at 75 percent intersection of union threshold, also at 49.74. However, APs, which is the average precision for smaller objects is 0, which means that the model is not performing very well when the dogs are very small in the image. Nevertheless, when dogs are medium sized, our model was able to achieve an APm score of 31.827, which is not bad for detecting medium sized objects. Furthermore, the metric of API is the average precision across all size objects is 43.045, which gives a comprehensive overview of the model’s detection capability.
 </p>
 
  <h4> Model Result Comparison: </h4>
-
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/fast_crnn_classification_ap_bar_chart.PNG" alt="fast_crnn_classification_ap_bar_chart">
  <p> After we have trained and tested the model on both the cheetah and dog datasets, we combined their average precision metrics into the above bar chart for easier comparison. It is interesting to see that the model performs well in detecting cheetahs and thermal dogs, with higher scores in certain categories. The AP for dogs is significantly higher than for cheetahs, which suggests that the model has stronger capability in recognizing dogs over cheetahs. However, the API metric for cheetahs out performs that for dogs. This could mean that the model was able to train and study a wide range of cheetahs postures and images that helped the model learn to identify cheetahs better. 
  </p>
  
