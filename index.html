@@ -28,23 +28,15 @@
  </div>
 </div><!-- end nd-pageheader -->
 
-<div class="container">
+<!-- <div class="container">
 <div class="row">
 <div class="col justify-content-center text-center">
 <h2>An Analysis of [papername]</h2>
-<p>Describe the paper and the big question about it that interests you.</p>
+<p>Describe the paper and the big question about it that interests you.</p> -->
 </div>
 </div>
 <div class="row">
 <div class="col">
-
-<h2>Literature Review; Biography; Social Impact; Industry Applications; Follow-on Research; and Peer-Review</h2>
-
-<p>Just as we have done in the role-playing exercise, analyze the paper from all perspectives.
-</p>
-
-<p>Optionally, in addition to a reading-based analysis, implement the ideas of the paper in code, and report on your findings.
-</p>
 
  <h2>Section I: Introduction</h2>
  <p>In the field of wildlife conservation and research, accurately detecting animals in difficult environments is critical. Traditional methods often struggle in low-light conditions or dense vegetation. Thermal imaging offers a promising alternative, allowing researchers to observe animals at night or through camouflage. This project delves into the capabilities of Faster R-CNN object detection models for identifying specific animal species in thermal images. Building upon the model’s ability to achieve high accuracy and faster training time, we aim to assess Faster R-CNN's effectiveness in challenging scenarios where traditional methods fall short. By evaluating Faster R-CNN’s performance on datasets containing thermal images of animal species, we hope to gain valuable insights into the model's capabilities for real-world applications. This project will contribute to understanding the strengths and limitations of Faster R-CNN for real-world animal identification tasks.
@@ -57,8 +49,33 @@
  <p>
  The RPN is a fully convolutional network operating on an entire image that predicts object bounding boxes and their likelihood of containing an object simultaneously. By sharing convolutional features extracted by the main detector network (i.e. VGG-16), the RPN can carry out proposal generation and object classification with greater efficiency. The RPN is merged with Fast R-CNN into a single neural network and training alternates betweens RPN and Fast R-CNN. During this process, the RPN proposes regions based on image features and can tell the Fast R-CNN where to look to classify those proposals into specific objects or the background. Errors made by the Fast R-CNN are then fed back to the RPN during training, thus allowing for better proposal quality and detection accuracy. The entire architecture, named “Faster R-CNN”, allows for object detection and classification tasks with high accuracy and greater efficiency. In our project, we implement the Faster R-CNN model from the paper through Meta AI Research’s Detectron2 library, which includes state-of-the-art detection algorithms that provide the framework to allow us to train models such as Faster R-CNN. We aim to train Faster R-CNN models on datasets with varied types of images featuring different environments such as thermal images vs. normal images and identify different types of animals and compare their performance across datasets. Additionally, we would like to expand our investigations to explore how other models perform with these datasets as well.
  </p>
+
+ <h2> Section III: Technical Structure </h2>
  
-<h3>References</h3>
+ <p>
+ We began our framework by implementing the Dectron2 model, which is a sophisticated segmentation model that has a robust architecture and pretrained models provided by Facebook AI Research. After ensuring all dependencies and required libraries are correctly adjusted and installed on our notebook, we included a portion of the demo code provided by the Dectron2 team that showcases the magic this model does. The model is capable of predicting on various objects and annotates what they are in the input image.
+ </p>
+
+ <p>
+ Next, we began to test if the model can be adapted to custom images. We found two datasets that are worth testing. The first dataset is a set of images of cheetahs captured in thermal cameras at night time. The second dataset is a set of images of people wearing masks at various occasions. The configurations of the model were adjusted, as well as the hyperparameters. After running on these two new datasets, the model is tested against the validation sets to evaluate its performance with the measuring metric of average precision. Then, the evaluation is carried out using the COCOEvaluator method, which reads through all the outputs and calculates the model’s effectiveness across all object predictions.
+ </p>
+
+ <p>
+ Our entire implementation from setup to evaluation is well documented within our working google colab notebook, which can be accessed at https://colab.research.google.com/drive/13wVtFlOn9j4eAQCHSAC6yXSxlYSP7JXN#scrollTo=FsePPpwZSmqt.
+ </p>
+
+ <h2> Section IV: Experimental Findings </h2>
+
+ <h2> Section V: Conclusions </h2>
+
+ <p>The Faster R-CNN object detection models are able to accurately locate and identify animals within thermal images of natural environments. The API scores of 45% and 80% suggest the cheetah identification model having strong identification capabilities in the foreground and the thermal dogs identification model having relatively weaker identification. However, animals at a distance display a far more conservative APm score at around 30% for both models. This is very promising as competitive multiclass image segmentation models on COCO datasets aim to hover at mean AP scores of 50% across classes. Although the steady decrease in loss suggests that the models can be improved with further training, this benchmark demonstrates a compact, realistic, and effective approach at animal classification within thermal images using Faster R-CNN models. In the future, we hope to expand this work into multi-breed classification with larger models. 
+ </p>
+
+ <p>
+ Utilizing object detection models to identify animals across various image types has the potential to revolutionize various fields. To aid with wildlife conservation efforts, this pipeline could enable automated monitoring of wildlife populations in both day and night (i.e. thermal images), providing crucial data for protecting endangered species. Detecting animals in restricted areas could also be used to deter poachers. This system could even be used to minimize human-wildlife conflicts by detecting animals approaching livestock or human settlements in rural areas, allowing for preventative measures.  Furthermore, this implementation could help further research on animal behavior by allowing scientists to gain insights into nocturnal activities, hunting strategies, and animal interactions that were previously difficult to observe, especially during peak activity periods, which often occur at night. Overall, this project holds significant promise for wildlife conservation, agriculture, and research, offering a novel approach to understanding and interacting with wildlife.
+ </p>
+ 
+<h2>Bibliography</h2>
 
 <p><a name="bottou-1990">[1]</a> <a href="https://papers.baulab.info/Bottou-1990.pdf"
   >L&eacute;on Bottou and Patrick Gallinari.
