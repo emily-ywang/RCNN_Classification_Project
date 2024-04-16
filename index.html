@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Your Project Name</title>
+<title>Seeing in the Dark: Using Faster R-CNN for Species Identification with Thermal Imaging</title>
 <meta property="og:title" content=Your Project Name" />
 <meta name="twitter:title" content="RCNN Classification Project" />
 <meta name="description" content="Your project about your cool topic described right here." />
@@ -46,6 +46,18 @@
 <p>Optionally, in addition to a reading-based analysis, implement the ideas of the paper in code, and report on your findings.
 </p>
 
+ <h2>Section I: Introduction</h2>
+ <p>In the field of wildlife conservation and research, accurately detecting animals in difficult environments is critical. Traditional methods often struggle in low-light conditions or dense vegetation. Thermal imaging offers a promising alternative, allowing researchers to observe animals at night or through camouflage. This project delves into the capabilities of Faster R-CNN object detection models for identifying specific animal species in thermal images. Building upon the model’s ability to achieve high accuracy and faster training time, we aim to assess Faster R-CNN's effectiveness in challenging scenarios where traditional methods fall short. By evaluating Faster R-CNN’s performance on datasets containing thermal images of animal species, we hope to gain valuable insights into the model's capabilities for real-world applications. This project will contribute to understanding the strengths and limitations of Faster R-CNN for real-world animal identification tasks.
+</p>
+
+ <h2>Section II: Review of Research Paper</h2>
+ <p>Many object detection networks rely on region proposal algorithms to generate candidate regions and hypothesize object locations before classifying each proposal as a specific object or background. However, this process can create bottlenecks and run slowly, especially for real-time applications. The research paper, “Faster R-CNN: Towards real-time object detection with region proposal networks” describes a framework using a Region Proposal Network (RPN) to generate high-quality region proposals coupled with Fast R-CNN to significantly reduce the runtime of object detection networks.
+ </p>
+
+ <p>
+ The RPN is a fully convolutional network operating on an entire image that predicts object bounding boxes and their likelihood of containing an object simultaneously. By sharing convolutional features extracted by the main detector network (i.e. VGG-16), the RPN can carry out proposal generation and object classification with greater efficiency. The RPN is merged with Fast R-CNN into a single neural network and training alternates betweens RPN and Fast R-CNN. During this process, the RPN proposes regions based on image features and can tell the Fast R-CNN where to look to classify those proposals into specific objects or the background. Errors made by the Fast R-CNN are then fed back to the RPN during training, thus allowing for better proposal quality and detection accuracy. The entire architecture, named “Faster R-CNN”, allows for object detection and classification tasks with high accuracy and greater efficiency. In our project, we implement the Faster R-CNN model from the paper through Meta AI Research’s Detectron2 library, which includes state-of-the-art detection algorithms that provide the framework to allow us to train models such as Faster R-CNN. We aim to train Faster R-CNN models on datasets with varied types of images featuring different environments such as thermal images vs. normal images and identify different types of animals and compare their performance across datasets. Additionally, we would like to expand our investigations to explore how other models perform with these datasets as well.
+ </p>
+ 
 <h3>References</h3>
 
 <p><a name="bottou-1990">[1]</a> <a href="https://papers.baulab.info/Bottou-1990.pdf"
