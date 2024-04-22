@@ -104,23 +104,23 @@
 
  
  <h4> Example of Faster R-CNN outputs when trained on thermal images of dogs: </h4>
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_image_1.png" alt="thermal_dogs_sample_image_1" style="width: 300px;">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_image_2.png" alt="thermal_dogs_sample_image_2" style="width: 300px;">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_image_3.png" alt="thermal_dogs_sample_image_3" style="width: 300px;">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_image_4.png" alt="thermal_dogs_sample_image_4" style="width: 300px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_1.png" alt="thermal_dogs_sample_1" style="width: 300px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_2.png" alt="thermal_dogs_sample_2" style="width: 300px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_3.png" alt="thermal_dogs_sample_3" style="width: 300px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_sample_4.png" alt="thermal_dogs_sample_4" style="width: 300px;">
  <p> From an exploratory view of image classification outputs, we can see that the model is successfully identifying dogs in thermal imaging. This remains true even if it's a dog at a distance, and it does not seem to get confused with background items. However, it does generate false positives if a human is prevalent enough in the foreground.
 </p>
 
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_total_loss.png" alt="thermal_dogs_classification_total_loss" style="width: 400px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_total_loss.png" alt="thermal_dogs_total_loss" style="width: 400px;">
  <p> The thermal dogs dataset went through a similar almost linear decrease in loss, with additional steepness between steps 0 - 75. This loss ended up at a value of 0.16 likely with opportunity for additional increase with more training.
 </p>
 
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_cls_accuracy.png" alt="thermal_dogs_classification_cls_accuracy" style="width: 400px;">
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_false_negative.png" alt="thermal_dogs_classification_false_negative" style="width: 400px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_cls_accuracy.png" alt="thermal_dogs_cls_accuracy" style="width: 400px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_false_negative.png" alt="thermal_dogs_false_negative" style="width: 400px;">
  <p> The classification accuracy of the thermal dogs model followed logarithmic growth in its performance, leveling out at 98% accuracy in correctly detecting a dog in a thermal image. While this model shares a similar increase in the false negatives curve, it experiences a smoother increase in accuracy over time compared to the cheetah classification model.
 </p>
 
- <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_classification_ap_scores.png" alt="thermal_dogs_classification_ap_scores" style="width: 900px;">
+ <img src="https://github.com/emily-ywang/RCNN_Classification_Project/raw/main/img/thermal_dogs_ap_scores.png" alt="thermal_dogs_ap_scores" style="width: 900px;">
  <p> Our results of the thermal dog detection achieved an average precision (AP) score of 41.714, indicating a relatively high level of accuracy in detecting dogs across different objects. The AP50 score measures precision at a 50 percent intersection over union threshold, and is high at 49.47, which means a strong performance in detection. Similarly, AP75 score represents the precision level at 75 percent intersection of union threshold, also at 49.74. However, APs, which is the average precision for smaller objects is 0, which means that the model is not performing very well when the dogs are very small in the image. Nevertheless, when dogs are medium sized, our model was able to achieve an APm score of 31.827, which is not bad for detecting medium sized objects. Furthermore, the metric of API is the average precision across all size objects is 43.045, which gives a comprehensive overview of the model’s detection capability.
 </p>
 
